@@ -1,0 +1,46 @@
+function doAddition(num1, num2){
+	return num1 + num2;
+}
+
+function doSubtraction(num1, num2){
+	var result = null;
+	if(num1 > num2){
+	result = num1 - num2;
+
+	}else{
+		result = num2 - num1; 
+	}
+	return result;
+}
+
+console.log(doAddition(3,2)); // displays 5
+
+console.log(doSubtraction(3,2)); // displays 1
+
+
+
+//======================================
+
+function CalculationHandler(){
+	CalculationHandler.result = null;
+}
+
+CalculationHandler.doAddition = function(num1, num2){
+	return num1 + num2;
+};
+
+CalculationHandler.doSubtraction = function(num1, num2){
+
+	if(num1 > num2){
+		CalculationHandler.result = num1 - num2;
+
+	}else{
+		CalculationHandler.result = num2 - num1; 
+	}
+	return CalculationHandler.result;
+
+};
+
+console.log(CalculationHandler.doAddition(3,2)); // displays 5
+console.log(CalculationHandler.doSubtraction(3,2)); // displays 1
+

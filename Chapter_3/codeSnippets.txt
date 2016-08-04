@@ -1,0 +1,267 @@
+
+// A singleton Object
+
+var mySingletonObj = {
+	  
+  name: "Sasan",
+  
+  title: "Software Developer",
+ 
+  getName: function(){
+  
+    return this.name;  
+  },
+  
+  getTitle: function(){
+  
+    return this.title;  
+  }
+
+};
+// displays “Sasan”
+console.log(mySingletonObj.getName()); 
+
+//  displays “Software Developer”
+console.log(mySingletonObj.getTitle());
+
+
+// =================================
+
+// Module Pattern example
+
+var mySingletonObj = (function(){
+    
+    //private variables
+    var name = "Sasan"; 
+    var title = "Software Developer";
+  
+	//returning a Singleton
+	return {
+      
+        	// privileged method
+		getName : function(){
+          
+          		return name;
+       	},
+       	// privileged method
+       	getTitle: function(){
+          
+          		return title;
+       	}            
+      
+    };
+         
+})();
+
+console.log(mySingletonObj.name); // displays undefined
+console.log(mySingletonObj.getName()); // displays “Sasan”
+
+// displays “Software Developer”
+console.log(mySingletonObj.getTitle());
+
+// =================================
+
+// Internal private scope in Module Pattern
+
+var mySingletonObj = function() {
+    //private variables
+    var name = "Sasan";
+    var title = "Software Developer";
+  
+    //returning a singleton
+    return {
+        name: 'Tom',
+      
+        // privileged method
+        getOuterName: function() {
+            return name;
+        },
+      
+        // privileged method
+        getInnerName: function() {
+            return this.name;
+        },
+      
+        // privileged method
+        getTitle: function() {
+            return title;
+        }
+    };
+}();
+
+console.log(mySingletonObj.name); // displays “Tom”
+
+console.log(mySingletonObj.getOuterName()); // displays “Sasan”
+
+console.log(mySingletonObj.getInnerName()); // displays “Tom”
+
+// =================================
+
+// Adding dynamic properties to Module Pattern interface
+
+var mySingletonObj = function() {
+    //private variables
+    var name = "Sasan";
+    var title = "Software Developer";
+  
+    //returning a singleton
+    return {
+        name: 'Tom',
+      
+        // privileged method
+        getOuterName: function() {
+            return name;
+        },
+      
+        // privileged method
+        getInnerName: function() {
+            return this.name;
+        },
+      
+        // privileged method
+        getTitle: function() {
+            return title;
+        }
+    };
+}();
+
+console.log(mySingletonObj.name); // displays “Tom”
+
+console.log(mySingletonObj.getOuterName()); // displays “Sasan”
+
+console.log(mySingletonObj.getInnerName()); // displays “Tom”
+
+mySingletonObj.name = "Jack";
+
+console.log(mySingletonObj.name); // displays “Jack”
+console.log(mySingletonObj.getOuterName()); // displays “Sasan”
+console.log(mySingletonObj.getInnerName()); // displays “Jack”
+
+// =================================
+
+// Object Factory Module
+
+var myCarFactoryModule = function() {
+  
+    var createdCars = [];
+
+    function carFactory() {
+      
+        // could also use “var newCar = {}”;  
+        var newCar = {};
+      
+        newCar.type = arguments[0];
+        newCar.color = arguments[1];
+        newCar.gearType = arguments[2];
+        newCar.cylinder = arguments[3];
+        createdCars.push(newCar);
+        return newCar;
+    }
+    return {
+      
+        // privileged method
+        createCar: function(type, color, gearType, cylinder) {
+            return carFactory(type, color, gearType, cylinder);
+        },
+      
+        // privileged method
+        getCarCount: function() {
+            return createdCars.length;
+        },
+      
+        // privileged method
+        removeCar: function(index) {
+            createdCars.splice(index, 1);
+        }
+    };
+}();
+
+var myFirstCar = myCarFactoryModule.createCar("Sedan", "red", "automatic",4); // create first instance of car
+
+var mySecondCar = myCarFactoryModule.createCar("SUV", "Silver", "Standard",6); // create second instance of car
+
+console.log(myFirstCar.color); // displays “red”
+console.log(mySecondCar.gearType); // displays “Standard”
+
+var myTotalCars = myCarFactoryModule.getCarCount();
+
+console.log(myTotalCars); //displays 2
+
+myCarFactoryModule.removeCar(0); // removes the first care object
+
+var myTotalCars = myCarFactoryModule.getCarCount();
+console.log(myTotalCars); // displays 1
+
+// =================================
+
+// ApplicationInitModule and its related modules
+var ApplicationInitModule = function() {
+    var registeredModules = [];
+  
+    return {
+        registerModule: function(module) {
+            registeredModules.push(module);
+        },
+        getAppModulesCount: function() {
+            return registeredModules.length;
+        },
+        removeRegisteredModule: function(index) {
+            registeredModules.splice(index, 1);
+        },
+        initializeAllModules: function() {
+            for (var module in registeredModules) {
+                registeredModules[module].initialize();
+            }
+        },
+    };
+}();
+
+var GlobalApp = (function() {
+    var registerModule = ApplicationInitModule.registerModule;
+    return {
+        registerModule: registerModule
+    };
+})();
+
+var testModule1 = (function() {
+    var self = {};
+    var moduleName = "Module 1";
+  
+    self.initialize = function() {
+        //displays "testmodule1 has been initialized!"
+        console.log("testmodule1 has been initialized!");
+        //displays "module name is: Module 1"
+        console.log("module name is: " + moduleName);
+    };
+  
+    (function() {
+        GlobalApp.registerModule(self);
+    })();
+  
+    return {
+        initialize: self.initialize,
+        getName: function() {
+            return moduleName;
+        }
+    };
+})();
+
+var testModule2 = (function() {
+    var moduleName = "Module 2";
+
+    function initialize() {
+        //displays "testmodule2 has been initialized!"
+        console.log("testmodule2 has been initialized!");
+    }
+    return {
+        initialize: initialize
+    };
+})();
+GlobalApp.registerModule(testModule2);
+
+
+// displays 
+// "testmodule1 has been initialized!" 
+// "module name is: Module 1"
+// "testmodule2 has been initialized!" 
+ApplicationInitModule.initializeAllModules();

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+	  <meta charset="utf-8">
+	  <title>Storage Handler Tests</title>
+	  <link rel="stylesheet" href="lib/mocha.css">
+	</head>
+	
+	<body>
+	  
+		<div id="mocha"><p></p></div>
+		<div id="messages"></div>
+		<div id="fixtures"></div>
+
+
+		<script src="lib/mocha.js"></script>
+		<script src="lib/chai.js"></script>
+
+		<!-- include source files here... -->
+		<script type="text/javascript" src="StorageHandler.js" ></script>
+
+		<script>mocha.setup('bdd')</script>
+		<script src="./spec/storgeHandlerSpec.js"></script>
+
+		<script>mocha.run();</script>
+
+	</body>
+
+</html>

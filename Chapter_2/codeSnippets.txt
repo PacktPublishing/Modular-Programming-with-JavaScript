@@ -1,0 +1,539 @@
+
+// object type constructor
+
+var myObj = new Object();
+
+	myObj.value = "my first value";
+	myObj.method = function(){
+	return this.value;
+};
+
+console.log(myObj.method()); // displays “my first value” 
+
+//===============================
+
+// Object literal notation
+
+var MyFirstObj = {
+myFirstValue : 2,
+mySecondValue : 5,
+
+addValues: function(){
+		return this.myFirstValue + this.mySecondValue ;
+	}
+};
+
+console.log( MyFirstObj.addValues()); // displays 7 
+
+//===============================
+
+// function object
+
+function MyObjDefinition(){
+	var myFirstValue = 2;
+	var mySecondValue = 5;
+
+	this.addValues = function(){
+		return myFirstValue + mySecondValue;
+	};
+}
+
+var myFirstObj = new MyObjDefinition();
+
+console.log( myFirstObj.addValues()); // displays 7 
+
+//===============================
+
+// function as static object
+
+function MyObjDefinition(){
+	MyObjDefinition.myFirstValue = 2;
+	MyObjDefinition.mySecondValue = 5; 
+}
+
+// adding a property to the object
+MyObjDefinition.addValues = function(){
+
+	return this.myFirstValue + this.mySecondValue;
+};
+
+// initializing the object by calling it as a function
+MyObjDefinition(); 
+
+console.log( MyObjDefinition.addValues()); // displays 7
+
+var anotherObj = new MyObjDefinition();
+anotherObj.addValues(); // error
+
+//===============================
+
+// function hoisting
+
+var firstPerson = CreatePerson("Tom", "Software Developer");
+
+function CreatePerson(personName, personJob){
+	// creating an object instance, using object type
+	var person = new Object();
+	// we can also use an object literal instead as below
+	// var person = {};
+	person.name = personName;
+	person.job = personJob;
+
+	return person;
+}
+
+console.log(firstPerson.name); // displays “Tom” 
+
+//===============================
+
+// object literal notation and adding properties
+
+var Tom = {
+	name: "Tom"
+};
+Tom.job = "SoftWare Developer";
+
+console.log(Tom.job); // displays "Software Developer"
+console.log(Tom.name); //  displays "Tom" 
+
+//===============================
+
+// object liternal notation not hoisting
+
+Tom.job = "SoftWare Developer"; // "TypeError: Cannot set property 'job' of undefined"
+
+var Tom = {
+	name: "Tom"
+};
+
+
+//===============================
+
+// constructor function and object literal notation together
+
+function CreatePerson(personData){
+	var person = {}; // using Object literal
+	person.name = personData.Name;
+	person.job = personData.Job;
+
+	return person;
+}
+
+var personData = {
+	Name: "Tom",
+	Job: "Software Developer"
+};
+
+var firstPerson = new CreatePerson(personData); 
+
+console.log(firstPerson.name); // displays “Tom” 
+
+
+//===============================
+
+// using this keyword
+
+function Person(){
+	this.name = "Tom";
+	this.job = "Software Developer";
+} 
+
+Person();
+
+console.log(window.name); // displays “Tom”;
+console.log(window.job); // displays “Software Developer”;
+
+//===============================
+
+// using this to refer to instances
+
+function CreatePerson(personData){
+	this.name = personData.Name;
+	this.job = personData.Job;
+}
+
+var personOneData = {
+	Name: "Tom",
+	Job: "Software Developer"
+};
+
+var firstPerson = new CreatePerson(personOneData);
+
+console.log(firstPerson.name);// displays “Tom”
+console.log(firstPerson.job); // displays “Software Developer”
+
+var personTwoData = {
+	Name: "John",
+	Job: "Software Architect"
+}; 
+
+var secondPerson = new CreatePerson(personTwoData); 
+
+console.log(secondPerson.name); // displays “John”;
+console.log(secondPerson.job); // displays “Software Architect”
+
+//===============================
+
+// this refering to global context
+
+var name = "The window global";
+
+var myOwnObject = {
+
+	name: "my Own Object",
+
+	getName: function(){
+		return this.name; 
+ 	}
+}; 
+
+console.log(myOwnObject.getName()); // displays “my Own Object” 
+
+// displays “The Window global”
+console.log((myOwnObject.getName = myOwnObject.getName)());
+
+//===============================
+
+// this refering to global context
+
+var name = "The window global";
+var myOwnObject = {
+
+		name: "my Own Object",
+		getName: function(){
+		return function(){
+			return this.name; 
+		};
+ 	}
+};
+
+console.log(myOwnObject.getName()()); // displays “The window global”
+
+//===============================
+
+// creating proper context for this
+
+var name = "The window global";
+var myOwnObject = {
+
+	name: "My Own Object",
+
+	getName: function(){
+		var that = this;
+ 		return function(){
+			return that.name; 
+ 		};
+	}
+};
+
+console.log(myOwnObject.getName()()); // displays “My Own Object”
+
+//===============================
+
+// closure
+
+function setTestValue(value){
+
+	var firstNum = value || 2;
+
+	return function(secondNum){
+		if(firstNum > secondNum){
+			return firstNum;
+		}else if(firstNum < secondNum){
+			return secondNum;
+		}else{
+			return "=";
+		} 
+	};
+}
+
+var theNumberExaminer = setTestValue(6);
+var result = theNumberExaminer(2); 
+console.log(result); // displays 6
+
+//===============================
+
+// closure preserving context
+
+function myClosedObject (){
+	var privateValue = 5;
+
+	function privateFunc (){
+		privateValue *= 2;
+		return privateValue ;
+	}
+
+	// privileged method 
+	this.publicFunc = function(){
+
+		return privateFunc();
+	};
+} 
+
+var firstObj = new myClosedObject ();
+console.log(firstObj.publicFunc()); // displays 10
+console.log(firstObj.publicFunc()); // displays 20 
+
+//===============================
+
+// encapsulation and scoping
+
+function simpleFunc (){
+	var firstValue = 1;
+	var secondValue = 2;
+	this.instanceValue = 100;
+
+	for(var i =0; i<50; i++){
+		var thirdValue = firstValue + secondValue + i;
+	}
+
+	// displays "The final value of thirdValue is:52" 
+	console.log("The final value of thirdValue is:" + thirdValue);
+}
+
+simpleFunc(); 
+
+console.log(simpleFunc.firstValue); // displays undefined
+
+var testObj = new simpleFunc();
+console.log(testObj.firstValue);   // displays undefined
+console.log(testObj.instanceValue); // displays 100 
+
+//===============================
+
+// namespace in funcitons
+
+function simpleFunc (){
+	var firstValue = 1;
+	(function(){
+		var secondValue = 2;
+		this.instanceValue = 100;
+		console.log(firstValue); // shows 1
+
+	})();
+
+	//console.log(secondValue); //produces an error
+
+}
+
+var testObj = new simpleFunc();
+console.log(testObj.instanceValue); // displays undefined 
+
+//===============================
+
+// accessing private members using public methods
+
+function simpleFunc (){
+	var privateValue = 1;
+	this.readPrivateValue = function(){
+
+		return privateValue;
+	}; 
+}
+
+var testObj = new simpleFunc();
+console.log(testObj.readPrivateValue());// displays 1
+
+//===============================
+
+// prototype chaining inheritance
+
+function BaseType (){
+	this.baseValue = 2;
+}
+
+BaseType.prototype.getBaseValue = function(){
+	return this.baseValue;
+};
+
+function ChildType (){
+	this.childTypeValue = 50;
+}
+// creating inheritance relationship
+ChildType.prototype = new BaseType();
+
+ChildType.prototype.getChildTypeValue = function(){
+	return this.childTypeValue;
+};
+
+var childInstance = new ChildType();
+
+console.log(childInstance.getBaseValue()); // displays 2
+console.log(childInstance.getChildTypeValue()); // displays 50
+
+
+//===============================
+
+// prototype chaining and shadowing
+
+function BaseType (){
+	this.baseValue = 2;
+}
+
+BaseType.prototype.getBaseValue = function(){
+	return this.baseValue;
+};
+
+function ChildType (){
+	this.childTypeValue = 50;
+}
+// creating inheritance relationship
+ChildType.prototype = new BaseType();
+
+ChildType.prototype.getChildTypeValue = function(){
+	return this.childTypeValue;
+};
+ChildType.prototype.getBaseValue = function(){
+	return this.childTypeValue;
+};
+var childInstance = new ChildType();
+
+console.log(childInstance.getBaseValue()); // displays 50
+
+
+//===============================
+
+// prototype chaining and constructor setting
+
+function BaseType (){
+	this.baseValue = 2;
+}
+
+BaseType.prototype.getBaseValue = function(){
+	return this.baseValue;
+};
+
+function ChildType (){
+	this.childTypeValue = 50;
+}
+// creating inheritance relationship
+ChildType.prototype = new BaseType();
+
+ChildType.prototype.getChildTypeValue = function(){
+	return this.childTypeValue;
+};
+ChildType.prototype.getBaseValue = function(){
+	return this.childTypeValue;
+};
+var childInstance = new ChildType();
+
+console.log(childInstance.getBaseValue()); // displays 50
+
+console.log(childInstance instanceof Object);    // displays true
+console.log(childInstance instanceof BaseType);  // displays true
+console.log(childInstance instanceof ChildType); // displays true 
+
+ChildType.prototype.constructor = ChildType;
+
+console.log(childInstance.constructor);
+
+//===============================
+
+// constructor stealing
+
+function BaseType(){
+	this.baseValue = 2;
+}
+function ChildType(){
+	BaseType.call(this);
+}
+ChildType.prototype.getBaseTypeValue = function(){
+	return this.baseValue;
+};
+var instanceObj = new ChildType();
+
+console.log(instanceObj.getBaseTypeValue());  // displays 2
+
+//===============================
+
+// parasitic combination inheritance
+
+function BaseType (){
+
+	this.baseValue = 2;
+	this.secondBaseValue = 99;
+}
+
+BaseType.prototype.getBaseValue = function(){
+	return this.baseValue;
+};
+
+function ChildType (){
+	BaseType.call(this);
+	this.childTypeValue = 50;
+}
+
+// creating inheritance relationship
+ChildType.prototype = BaseType.prototype;
+
+ChildType.prototype.getChildTypeValue = function(){
+	return this.childTypeValue;
+};
+
+var childInstance1 = new ChildType();
+var childInstance2 = new ChildType();
+childInstance1.baseValue = 100;
+childInstance2.baseValue = 55;
+
+console.log(childInstance1.getBaseValue()); //displays 100 
+console.log(childInstance1.getChildTypeValue()); //displays 50
+console.log(childInstance1.secondBaseValue); //displays 99
+
+console.log(childInstance2.getBaseValue()); //displays 55 
+console.log(childInstance2.getChildTypeValue()); //displays 50
+console.log(childInstance2.secondBaseValue); // displays 99 
+
+ChildType.prototype = BaseType.prototype;
+ChildType.prototype.constructor = ChildType;
+
+//===============================
+
+// Object.create inheritance
+
+var BaseType = {
+	firstValue: 20,
+	secondValue: [3,4]
+};
+var ChildType1 = Object.create(BaseType);
+
+ChildType1.secondValue.push(5);
+
+ChildType1.getBaseTypeFirstValue = function(){
+	return this.firstValue ;
+};
+
+var ChildType2 = Object.create(BaseType);
+ChildType2.newProperty = 50; 
+
+console.log(ChildType1.getBaseTypeFirstValue()); // displays 20
+console.log(ChildType1.secondValue); // displays [3, 4, 5]
+
+console.log(ChildType2.secondValue); // displays [3, 4, 5]
+console.log(BaseType.secondValue); // displays [3, 4, 5] 
+
+//===============================
+
+// Object.create inhritance with optional object
+
+var BaseType = {
+	firstValue: 20,
+	secondValue: [3,4]
+};
+var ChildType = Object.create(BaseType, {
+	optionalObject:{
+		value: 50
+	}
+});
+
+console.log(ChildType.optionalObject); // displays 50
+console.log(ChildType.firstValue); // displays 20 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Images Inc.</title>
+        <link rel="stylesheet" href="css/app.css">
+    
+    </head>
+    
+    <body>
+        
+        <header id="headerContainer" role="banner" itemscope itemtype="https://schema.org/WPHeader" class="headerContainerClass">
+        </header>
+
+        <main id="mainPageContainer" role="main" class="clearfix mainPageContainerClass">
+        </main>
+
+        <div id="footerParentContainer" class="footerContainerClass" >
+            <div id="footerContainer" class="footerlinksContainerClass">
+            </div>
+        </div>
+
+        <!--loading base and GlobalData modules-->
+        <script type="text/javascript"   src="js/Modules/Base/Base.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Base/jquery-1.10.2.min.js" ></script>
+        <script type="text/javascript"   src="js/Modules/GlobalData/GlobalData_Sub.js" ></script>
+        <script type="text/javascript"   src="js/Modules/GlobalData/GlobalData.js" ></script>
+
+        <!--loading app core modules-->
+        <script type="text/javascript"   src="js/Modules/Core/MainCore.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Core/Logger.js" ></script> 
+        <script type="text/javascript"   src="js/Modules/Core/Utilities.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Core/CookieHandler.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Core/StorageHandler.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Core/AjaxEngine.js" ></script>
+        <script type="text/javascript"   src="js/Modules/Core/NotificationHandler.js" ></script>
+        <script type="text/javascript"   src="js/Modules/SandBox/SandBox.js" ></script>
+		
+
+        <!--loading app components-->
+        <script type="text/javascript"   src="js/Components/ImagesInc_Header.js" ></script>
+        <script type="text/javascript"   src="js/Components/ImagesInc_Footer.js" ></script>
+        <script type="text/javascript"   src="js/Components/ImagesInc_Content.js" ></script>
+		
+		 <!--loading test modules-->
+        <script type="text/javascript" src="js/Modules/AppTester/AppTester.js" ></script>
+        <script type="text/javascript" src="js/Modules/AppTester/StorageHandlerTester.js" ></script>
+        <script type="text/javascript" src="js/Modules/AppTester/CookieHandlerTester.js" ></script>
+
+
+        <script type="text/javascript">
+
+            ImagesInc_Core.initializeAllModules();
+            ImagesInc_Core.initializeAllComponents();
+			ImagesInc_Core.runAllUnitTests();
+            ImagesInc_Core.handlePageChange(location.pathname);
+
+        </script>
+
+    </body>
+    
+</html>

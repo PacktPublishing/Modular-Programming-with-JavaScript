@@ -1,0 +1,157 @@
+#widgetContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.75);
+}
+
+#notificationMainContainer {
+    width: 55em;
+    background-color: #d9d4ce;
+    overflow: hidden;
+    height: 25em;
+    font-size: .7em;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.centerElem {
+    margin: 0 auto;
+}
+
+#widgetContainer .header {
+    background-color: #d9d4ce;
+    width: 80%;
+    position: relative;
+    text-align: center;
+    margin-top: 1em;
+    height: 1.5em;
+}
+
+#widgetContainer .buttonContainer {
+    margin: 0 auto;
+    width: 80%;
+    min-width: 36em;
+    margin-top: 3.7em;
+    overflow: hidden;
+}
+
+#widgetContainer .button {
+    height: 2.5em;
+    line-height: 2.5em;
+    position: relative;
+    display: inline-block;
+    border: 1px solid #79715d;
+    font-weight: 700;
+    font-size: 1.5em;
+    text-align: center;
+    width: 46%;
+    min-width: 11em;
+    background-color: #B9B9B9;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+#widgetContainer .button-left {
+    float: left;
+}
+
+#widgetContainer .button-right {
+    float: right;
+}
+
+#widgetContainer a {
+    color: blue;
+}
+
+#widgetContainer a:link {
+    text-decoration: none;
+}
+
+@media (max-width: 55rem) {
+    #notificationMainContainer {
+        width: 60%;
+        height: 25em;
+        font-size: .5em;
+    }
+
+    #widgetContainer .header {
+        width: 100%;
+    }
+
+    #widgetContainer .button {
+        height: 2em;
+        line-height: 1.6em;
+        font-size: 1.6em;
+        width: 40%;
+    }
+}
+
+@media (max-width: 45rem) {
+    #notificationMainContainer {
+        width: 60%;
+        height: 25em;
+        font-size: .45em;
+    }
+
+    #widgetContainer .button {
+        height: 2em;
+        line-height: 1.5em;
+        font-size: 1.5em;
+        text-align: center;
+        width: 30%;
+    }
+
+    #widgetContainer .h1 {
+        font-size: 1.8px;
+    }
+}
+
+@media (max-width: 40rem) {
+    #notificationMainContainer {
+        width: 60%;
+        height: 25em;
+        font-size: .4em;
+    }
+
+    #widgetContainer .button {
+        height: 2em;
+        line-height: 1.5em;
+        font-size: 1.5em;
+        width: 30%;
+    }
+
+    #widgetContainer .header {
+        height: 1.5em;
+    }
+
+    #widgetContainer h1 {
+        font-size: 2em;
+    }
+
+    #widgetContainer h3.header {
+        width: 90%;
+    }
+}
+
+@media (max-width: 30rem) {
+    #widgetContainer .buttonContainer {
+        width: 95%;
+        max-width: 95%;
+        min-width: 25em;
+    }
+
+    #widgetContainer div.button {
+        min-width: 9.3em;
+    }
+}

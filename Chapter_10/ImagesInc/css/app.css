@@ -1,0 +1,368 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 20rem;
+}
+
+header {
+    height: 7rem;
+}
+
+body {
+    font-size: 1.12rem;
+    line-height: 1.6em;
+    background: #E5E9EA;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a,a:link {
+    text-decoration: none;
+    color: #000;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover,a:active {
+    text-decoration: none;
+    background: #CAC7D4;
+}
+
+h1,h2,h3 {
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 3em;
+    margin: .563em 0;
+}
+
+h2 {
+    font-size: 2.25em;
+    margin: .62em 0;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin: 1.3em 0;
+}
+
+.clearfix:before,.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.hiddenClass {
+    display: none !important;
+}
+
+body {
+    font-family: Tahoma,sans-serif;
+}
+
+.headerContainerClass {
+    background-color: #F3F3F3;
+    overflow: hidden;
+    width: 90%;
+    max-width: 95rem;
+    margin: auto;
+}
+
+/* LOGO AND TITLE */
+.logo_titleClass {
+    float: left;
+    margin: 2.1875rem 0;
+    margin: 0;
+    background: #F3F3F3;
+    position: relative;
+    width: 40%;
+    display: table;
+    height: 7rem;
+    max-height: 8rem;
+}
+
+.logo_titleClass a {
+    position: relative;
+    float: left;
+    height: 7rem;
+    max-height: 7rem;
+}
+
+.logoContainerClass {
+    width: 7rem;
+    margin: 0;
+    float: left;
+}
+
+.logo_titleClass {
+    float: left;
+    margin-right: 1em;
+    vertical-align: top;
+}
+
+.logo_titleClass a:link,a:hover {
+    background: #F3F3F3;
+}
+
+h1.titleTxtClass {
+    display: inline;
+}
+
+h1.titleTxtClass span {
+    font-weight: 300;
+}
+
+.siteTitleClass {
+    height: 100%;
+    position: relative;
+    line-height: 7rem;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 2rem;
+}
+
+.navmenuClass a {
+    text-decoration: none;
+}
+
+ul.navmenuClass {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    white-space: nowrap;
+    background: #F3F3F3;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+}
+
+ul.navmenuClass:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+ul.navmenuClass li {
+    cursor: pointer;
+    list-style: none;
+    display: block;
+    position: relative;
+    padding: 0;
+}
+
+ul.navmenuClass li a {
+    display: inline-block;
+}
+
+ul.navmenuClass li ul {
+    padding: 0;
+}
+
+ul.navmenuClass {
+    float: right;
+    display: inline-table;
+    padding: 0 1em;
+}
+
+ul.navmenuClass li {
+    float: left;
+}
+
+ul.navmenuClass li a {
+    line-height: 7.18rem;
+    padding: 0 1.56rem;
+}
+
+ul.navmenuClass li a:hover {
+    background: #E7E6EA;
+}
+
+.mainPageContainerClass {
+    height: 40rem;
+    width: 90%;
+    max-width: 95rem;
+    margin: auto;
+    overflow: auto;
+    text-align: center;
+}
+
+.footerContainerClass {
+    height: 7rem;
+    overflow: hidden;
+    width: 90%;
+    max-width: 95rem;
+    margin: auto;
+    background-color: #F3F3F3;
+    position: relative;
+}
+
+.footerContainerClass_Test {
+    height: 7rem;
+    overflow: hidden;
+    width: 90%;
+    max-width: 95rem;
+    margin: auto;
+    position: relative;
+}
+
+.footerlinksContainerClass {
+    background-color: #F3F3F3;
+    width: 80%;
+    height: 2rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    font-weight: 700;
+}
+
+.footerlinksContainerClass a:hover {
+    background: #F2F3ED;
+    color: #532CB9;
+}
+
+.footerlinksContainerClass div {
+    background-color: #F2F3ED;
+    width: 10rem;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    text-align: center;
+    display: inline-block;
+}
+
+.imageDiv {
+    width: 15rem;
+    height: 15rem;
+    background-color: #efefef;
+    position: relative;
+    margin: 1.5rem;
+    display: inline-block;
+}
+
+.imageDiv a:hover {
+    background: #efefef;
+    color: #355184;
+    font-weight: 700;
+}
+
+.imageDiv .imageIndexTextDiv {
+    width: 100%;
+    height: 2em;
+    margin-top: 1em;
+}
+
+.imagePageMainDiv {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.imagePageMainDiv img {
+    width: 90%;
+    max-width: 90%;
+    height: 90%;
+    max-height: 90%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/*Media queries*/
+@media (max-width: 65rem) {
+    .siteTitleClass {
+        font-size: 2rem;
+    }
+
+    ul.navmenuClass li a {
+        line-height: 7.18rem;
+        padding: 0 .9rem;
+    }
+}
+
+@media (max-width: 55rem) {
+    .siteTitleClass {
+        font-size: 1.5rem;
+    }
+
+    ul.navmenuClass {
+        font-size: .65rem;
+    }
+
+    ul.navmenuClass li a {
+        font-size: 1rem;
+        padding: 0 .5rem;
+    }
+
+    .footerlinksContainerClass div {
+        font-size: .9rem;
+        width: 8rem;
+    }
+}
+
+@media (max-width: 45rem) {
+    .siteTitleClass {
+        font-size: .85rem;
+    }
+
+    ul.navmenuClass {
+        font-size: .5rem;
+    }
+
+    ul.navmenuClass li a {
+        font-size: .75rem;
+        padding: 0 .3rem;
+    }
+
+    .footerlinksContainerClass div {
+        font-size: .7rem;
+        width: 6rem;
+    }
+}
+
+@media (max-width: 35rem) {
+    .siteTitleClass {
+        display: none;
+    }
+
+    .logo_titleClass {
+        float: left;
+        margin-right: 0;
+        vertical-align: top;
+        width: 0;
+    }
+
+    ul.navmenuClass {
+        font-size: .5rem;
+    }
+
+    .footerlinksContainerClass div {
+        font-size: .6rem;
+        width: 4.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    ul.navmenuClass li a {
+        font-size: .4em;
+    }
+}
