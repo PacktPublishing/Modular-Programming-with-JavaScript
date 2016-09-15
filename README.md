@@ -1,5 +1,5 @@
 # Modular-Programming-with-JavaScript
-[Modular Programming with JavaScript](https://www.packtpub.com/web-development/modular-programming-javascript?utm_source=GitHub&utm_medium=repo&utm_campaign=9781785880650) by [Packt Publishing](https://www.packtpub.com/)
+[Modular Programming with JavaScript](https://www.packtpub.com/web-development/modular-programming-javascript?utm_source=GitHub&utm_medium=repository&utm_campaign=9781785880650) by [Packt Publishing](https://www.packtpub.com/)
 
 
 The codebase related to this book consists of the following:
@@ -20,6 +20,6 @@ There is no server side code associated with this book as we have focused on a c
 Good luck and all the best!
 
 For more information, you can refer to the following books:
-* [JavaScript and JSON Essentials](https://www.packtpub.com/web-development/javascript-and-json-essentials?utm_source=GitHub&utm_medium=repo&utm_campaign=9781783286034)
-* [Mastering JavaScript Design Patterns](https://www.packtpub.com/application-development/mastering-javascript-design-patterns?utm_source=GitHub&utm_medium=repo&utm_campaign=9781783987986)
-* [Mastering JavaScript Object-Oriented Programming](https://www.packtpub.com/web-development/mastering-javascript-object-oriented-programming?utm_source=GitHub&utm_medium=repo&utm_campaign=9781785889103)
+* [JavaScript and JSON Essentials](https://www.packtpub.com/web-development/javascript-and-json-essentials?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783286034)
+* [Mastering JavaScript Design Patterns](https://www.packtpub.com/application-development/mastering-javascript-design-patterns?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783987986)
+* [Mastering JavaScript Object-Oriented Programming](https://www.packtpub.com/web-development/mastering-javascript-object-oriented-programming?utm_source=GitHub&utm_medium=repository&utm_campaign=9781785889103)
