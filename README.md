@@ -1,7 +1,3 @@
-## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B04910?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
------
-For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
-
 # Modular-Programming-with-JavaScript
 [Modular Programming with JavaScript](https://www.packtpub.com/web-development/modular-programming-javascript?utm_source=GitHub&utm_medium=repository&utm_campaign=9781785880650) by [Packt Publishing](https://www.packtpub.com/)
 
