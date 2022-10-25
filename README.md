@@ -23,3 +23,7 @@ For more information, you can refer to the following books:
 * [JavaScript and JSON Essentials](https://www.packtpub.com/web-development/javascript-and-json-essentials?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783286034)
 * [Mastering JavaScript Design Patterns](https://www.packtpub.com/application-development/mastering-javascript-design-patterns?utm_source=GitHub&utm_medium=repository&utm_campaign=9781783987986)
 * [Mastering JavaScript Object-Oriented Programming](https://www.packtpub.com/web-development/mastering-javascript-object-oriented-programming?utm_source=GitHub&utm_medium=repository&utm_campaign=9781785889103)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781785880650">https://packt.link/free-ebook/9781785880650 </a> </p>
